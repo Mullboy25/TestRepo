@@ -39,6 +39,7 @@ public class Robot extends IterativeRobot {
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
 
+    double Pizza;
   }
 
   /**
