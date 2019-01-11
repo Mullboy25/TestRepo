@@ -11,6 +11,11 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.TimedRobot;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -33,6 +38,7 @@ public class Robot extends IterativeRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+
   }
 
   /**
@@ -82,11 +88,24 @@ public class Robot extends IterativeRobot {
     }
   }
 
+  public class MecanumDefaultCode extends TimedRobot {
+    VictorSP m_frontLeft = new VictorSP(0);
+       VictorSP m_frontRight = new VictorSP(1);
+       VictorSP m_backLeft = new VictorSP(2);
+       VictorSP m_backRight = new VictorSP(3);
+
+   MecanumDrive m_robotDrive = new MecanumDrive(m_frontLeft, m_backLeft, m_frontRight, m_backRight);
+
+    Joystick m_driveStick = new Joystick(1);
+  }
+
+
   /**
    * This function is called periodically during operator control.
    */
   @Override
   public void teleopPeriodic() {
+    
   }
 
   /**
